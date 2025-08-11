@@ -5,6 +5,6 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface PathRepository : JpaRepository<Long, Path> {
+interface PathRepository : JpaRepository<Path, Long> {
     fun findAllByItem(item: Item, pageable: Pageable): Page<Path>
 }

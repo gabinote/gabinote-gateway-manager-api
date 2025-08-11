@@ -1,6 +1,5 @@
-package com.gabinote.api.common.utils.validation.page.sort
+package com.gabinote.gateway.manager.api.common.util.validation.pageable.sort
 
-import com.gabinote.gateway.manager.api.common.util.validation.pageable.sort.PageSortKeyCheck
 import jakarta.validation.ConstraintValidator
 import jakarta.validation.ConstraintValidatorContext
 import org.springframework.data.domain.Pageable

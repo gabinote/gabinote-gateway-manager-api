@@ -8,5 +8,5 @@ enum class ItemSortKey(
     NAME("name"),
     ID("id"),
     PORT("port"),
-    PREFIX("prefix");
+    PREFIX("prefix")
 }

@@ -1,0 +1,71 @@
+package com.gabinote.gateway.manager.api.testSupport.testUtil.page
+
+
+import com.gabinote.gateway.manager.api.common.dto.page.controller.PagedResponseControllerDto
+import com.gabinote.gateway.manager.api.common.dto.sort.controller.SortResponseControllerDto
+import io.mockk.mockk
+import org.springframework.data.domain.*
+
+object TestPageableUtil {
+    fun Pageable.sortQueryParam(): String {
+        return if (this.sort.isSorted) {
+            this.sort.map { "${it.property},${it.direction}" }.joinToString(",")
+        } else {
+            ""
+        }
+    }
+
+    fun createPageable(
+        page: Int = 0,
+        size: Int = 10,
+        sortKey: String? = "id",
+        sortDirection: Sort.Direction? = Sort.Direction.ASC
+    ): Pageable {
+        return sortKey?.let {
+            val sort = Sort.by(sortDirection ?: Sort.Direction.ASC, it)
+            PageRequest.of(page, size, sort)
+        } ?: PageRequest.of(page, size)
+    }
+
+    fun <T> toPageObject(pageable: Pageable, dto: List<T>): Page<T> {
+        return PageImpl<T>(
+            dto,
+            pageable,
+            dto.size.toLong()
+        )
+    }
+
+    fun <T> List<T>.toPage(pageable: Pageable): Page<T> {
+        return PageImpl(
+            this,
+            pageable,
+            this.size.toLong()
+        )
+    }
+
+    fun <T> List<T>.toPagedResponse(pageable: Pageable): PagedResponseControllerDto<T> {
+        val page = this.toPage(pageable)
+
+        return page.toPagedResponse()
+    }
+
+    fun <T> Page<T>.toPagedResponse(): PagedResponseControllerDto<T> {
+        return PagedResponseControllerDto(
+            content = this.content,
+            page = this.number,
+            size = this.size,
+            totalElements = this.totalElements,
+            totalPages = this.totalPages,
+            sortKey = this.sort.map {
+                SortResponseControllerDto(
+                    key = it.property,
+                    direction = it.direction.name.lowercase()
+                )
+            }.toList()
+        )
+    }
+
+    fun <T> List<T>.toMockPageObj(): Page<T> {
+        return mockk<Page<T>>()
+    }
+}

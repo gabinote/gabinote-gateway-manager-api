@@ -1,7 +1,6 @@
 package com.gabinote.gateway.manager.api.common.util.validation.pageable.sort
 
 
-import com.gabinote.api.common.utils.validation.page.sort.PageSortKeyValidator
 import com.gabinote.gateway.manager.api.common.domain.BaseSortKey
 import jakarta.validation.Constraint
 import jakarta.validation.Payload
