@@ -7,6 +7,5 @@ enum class PathSortKey(
 ) : BaseSortKey {
     ID("id"),
     ROLE("role"),
-    METHOD("method"),
     PRIORITY("priority"),
 }
