@@ -3,7 +3,6 @@ package com.gabinote.gateway.manager.api.path.domain
 import com.gabinote.gateway.manager.api.common.domain.BaseEntity
 import com.gabinote.gateway.manager.api.item.domain.Item
 import jakarta.persistence.*
-import org.springframework.http.HttpMethod
 
 @Entity(name = "GATEWAY_PATH")
 class Path(
@@ -24,16 +23,19 @@ class Path(
     @Column("GATEWAY_PATH_ROLE", length = 255)
     var role: String? = null,
 
-    @Column("GATEWAY_PATH_HTTP_METHOD", nullable = false)
-    var _httpMethod: String,
+    @Enumerated(EnumType.STRING)
+    @Column("GATEWAY_PATH_HTTP_METHOD", nullable = false, length = 16)
+    var httpMethod: HttpMethodType,
+
+    @Column("GATEWAY_PATH_IS_ENABLED", nullable = false)
+    var enabled: Boolean = true,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GATEWAY_ITEM_PK", nullable = false)
     var item: Item
 
+
 ) : BaseEntity<Long>() {
-    val httpMethod: HttpMethod
-        get() = HttpMethod.valueOf(_httpMethod.uppercase())
 
     fun changePath(newPath: String) {
         this.path = newPath
@@ -51,7 +53,11 @@ class Path(
         this.role = newRole
     }
 
-    fun changeHttpMethod(newHttpMethod: HttpMethod) {
-        this._httpMethod = newHttpMethod.name()
+    fun changeHttpMethod(newHttpMethod: HttpMethodType) {
+        this.httpMethod = newHttpMethod
+    }
+
+    fun changeEnabled(newEnabled: Boolean) {
+        this.enabled = newEnabled
     }
 }

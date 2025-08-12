@@ -146,7 +146,7 @@ class PathRepositoryTest(
                         path = "/api/v3/test",
                         enableAuth = true,
                         role = "ROLE_ADMIN",
-                        _httpMethod = "POST",
+                        httpMethod = HttpMethodType.POST,
                         priority = 0
                     )
 
@@ -169,7 +169,7 @@ class PathRepositoryTest(
                     existingPath.path = "/api/v3/updated-test"
                     existingPath.enableAuth = false
                     existingPath.role = "ROLE_USER"
-                    existingPath._httpMethod = "GET"
+                    existingPath.httpMethod = HttpMethodType.GET
                     existingPath.priority = 1
 
                     val updatedPath = pathRepository.save(existingPath)
