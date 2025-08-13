@@ -1,6 +1,7 @@
 package com.gabinote.gateway.manager.api.testSupport.testTemplate
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.gabinote.gateway.manager.api.testSupport.testConfig.db.UseTestDatabase
 import com.gabinote.gateway.manager.api.testSupport.testConfig.general.UseGeneralTestConfig
 import com.gabinote.gateway.manager.api.testSupport.testUtil.db.DbSqlCounter
 import com.gabinote.gateway.manager.api.testSupport.testUtil.db.DbUnitTestHelper
@@ -19,6 +20,7 @@ import org.testcontainers.junit.jupiter.Testcontainers
 import java.time.LocalDateTime
 import java.util.*
 
+
 @DirtiesContext(methodMode = DirtiesContext.MethodMode.AFTER_METHOD)
 @Import(
     DbUnitTestHelper::class,
@@ -26,6 +28,7 @@ import java.util.*
     TestTransactionHookAspect::class,
 )
 @Testcontainers
+@UseTestDatabase
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @UseGeneralTestConfig
 abstract class IntegrationTestTemplate : FeatureSpec() {
