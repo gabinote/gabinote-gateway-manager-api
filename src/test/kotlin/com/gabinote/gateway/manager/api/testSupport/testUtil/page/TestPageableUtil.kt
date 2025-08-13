@@ -1,8 +1,8 @@
 package com.gabinote.gateway.manager.api.testSupport.testUtil.page
 
 
-import com.gabinote.gateway.manager.api.common.dto.page.controller.PagedResponseControllerDto
-import com.gabinote.gateway.manager.api.common.dto.sort.controller.SortResponseControllerDto
+import com.gabinote.gateway.manager.api.common.dto.page.controller.PagedResControllerDto
+import com.gabinote.gateway.manager.api.common.dto.sort.controller.SortResControllerDto
 import io.mockk.mockk
 import org.springframework.data.domain.*
 
@@ -43,21 +43,21 @@ object TestPageableUtil {
         )
     }
 
-    fun <T> List<T>.toPagedResponse(pageable: Pageable): PagedResponseControllerDto<T> {
+    fun <T> List<T>.toPagedResponse(pageable: Pageable): PagedResControllerDto<T> {
         val page = this.toPage(pageable)
 
         return page.toPagedResponse()
     }
 
-    fun <T> Page<T>.toPagedResponse(): PagedResponseControllerDto<T> {
-        return PagedResponseControllerDto(
+    fun <T> Page<T>.toPagedResponse(): PagedResControllerDto<T> {
+        return PagedResControllerDto(
             content = this.content,
             page = this.number,
             size = this.size,
             totalElements = this.totalElements,
             totalPages = this.totalPages,
             sortKey = this.sort.map {
-                SortResponseControllerDto(
+                SortResControllerDto(
                     key = it.property,
                     direction = it.direction.name.lowercase()
                 )

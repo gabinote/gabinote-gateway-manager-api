@@ -1,6 +1,6 @@
 package com.gabinote.gateway.manager.api.common.dto.sort.controller
 
-data class SortResponseControllerDto(
+data class SortResControllerDto(
     val key: String,
     val direction: String
 )
