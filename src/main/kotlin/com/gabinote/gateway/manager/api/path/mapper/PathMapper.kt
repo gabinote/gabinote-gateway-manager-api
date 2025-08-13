@@ -25,6 +25,9 @@ interface PathMapper {
     fun toPath(dto: PathCreateReqServiceDto, item: Item): Path
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "item", ignore = true)
+    @Mapping(target = "enableAuth", ignore = true)
+    @Mapping(target = "role", ignore = true)
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     fun updatePathFromDto(dto: PathUpdateReqServiceDto, @MappingTarget path: Path): Path
 }

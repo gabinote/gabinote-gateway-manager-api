@@ -211,8 +211,8 @@ class PathMapperTest : MockkTestTemplate() {
                         result.id shouldBe existingPath.id
                         result.path shouldBe dto.path
                         result.priority shouldBe dto.priority
-                        result.enableAuth shouldBe dto.enableAuth
-                        result.role shouldBe dto.role
+                        result.enableAuth shouldBe existingPath.enableAuth // 값이 변경되면 안됨
+                        result.role shouldBe existingPath.role // 값이 변경되면 안됨
                         result.httpMethod shouldBe dto.httpMethod
                         result.enabled shouldBe dto.enabled
                         result.item shouldBe existingPath.item

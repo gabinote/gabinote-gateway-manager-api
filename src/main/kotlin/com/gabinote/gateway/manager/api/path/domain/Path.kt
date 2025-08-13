@@ -49,7 +49,7 @@ class Path(
         this.enableAuth = newEnableAuth
     }
 
-    fun changeRole(newRole: String) {
+    fun changeRole(newRole: String?) {
         this.role = newRole
     }
 
