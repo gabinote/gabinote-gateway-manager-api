@@ -33,10 +33,6 @@ ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -XX:+UseContainerSupport -XX:MaxR
 # 애플리케이션 JAR 파일 복사
 COPY --from=builder /app/build/libs/*.jar app.jar
 
-# 프로덕션 설정 파일 복사
-COPY src/main/resources/application-prod.properties /app/config/application-prod.properties
-COPY src/main/resources/logback-prod.xml /app/config/logback-prod.xml
-
 # 포트 노출
 EXPOSE 8080
 
