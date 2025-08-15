@@ -50,5 +50,5 @@ logback-local.xml
 messages.properties
 messages_ko.properties
 messages_en.properties
-
+logback-product
 configs.properties

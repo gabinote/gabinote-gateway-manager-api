@@ -151,4 +151,13 @@ kotlin {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    jvmArgs(
+        "--add-opens", "java.base/java.time=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang.reflect=ALL-UNNAMED"
+    )
+    systemProperty("spring.profiles.active", "test")
+    testLogging {
+        events("passed", "skipped", "failed")
+    }
+    finalizedBy("openapi3")
 }
