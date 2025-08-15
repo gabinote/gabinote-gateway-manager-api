@@ -39,8 +39,7 @@ out/
 ### Kotlin ###
 .kotlin
 
-### 테스트 셋 ###
-dataset/
+
 
 ### 설정 파일 ###
 *.properties
@@ -50,5 +49,5 @@ logback-local.xml
 messages.properties
 messages_ko.properties
 messages_en.properties
-
+logback-product
 configs.properties

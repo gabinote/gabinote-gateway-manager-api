@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <GATEWAY_ITEM GATEWAY_ITEM_PK="1" GATEWAY_ITEM_NAME="test" GATEWAY_ITEM_URL="http://test.com"
+                  GATEWAY_ITEM_PREFIX="test1"
+                  GATEWAY_ITEM_PORT="123"/>
+    <GATEWAY_ITEM GATEWAY_ITEM_PK="2" GATEWAY_ITEM_NAME="test2" GATEWAY_ITEM_URL="http://test2.com"
+                  GATEWAY_ITEM_PREFIX="test2"
+                  GATEWAY_ITEM_PORT="456"/>
+    <GATEWAY_ITEM GATEWAY_ITEM_PK="3" GATEWAY_ITEM_NAME="test3" GATEWAY_ITEM_URL="http://test3.com"
+                  GATEWAY_ITEM_PREFIX="test3"
+                  GATEWAY_ITEM_PORT="828"/>
+</dataset>
