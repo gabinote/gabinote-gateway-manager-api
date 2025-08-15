@@ -42,7 +42,9 @@ out/
 
 
 ### 설정 파일 ###
-*.properties
+application.properties
+application-test.properties
+application-prod.properties
 logback-test.xml
 logback-prod.xml
 logback-local.xml
