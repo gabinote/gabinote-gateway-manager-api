@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <GATEWAY_ITEM GATEWAY_ITEM_PK="1" GATEWAY_ITEM_NAME="test" GATEWAY_ITEM_URL="http://test.com"
+                  GATEWAY_ITEM_PREFIX="test1"
+                  GATEWAY_ITEM_PORT="123"/>
+</dataset>

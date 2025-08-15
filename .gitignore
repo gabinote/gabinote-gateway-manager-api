@@ -39,8 +39,7 @@ out/
 ### Kotlin ###
 .kotlin
 
-### 테스트 셋 ###
-dataset/
+
 
 ### 설정 파일 ###
 *.properties
